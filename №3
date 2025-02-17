@@ -1,0 +1,35 @@
+import math
+CentrKruga1=0
+CentrKruga2=0
+
+rad=int(input("Введите радиус круга "))
+
+a1=int(input("Введите первую координату 1-й вершины"))
+a2=int(input("Введите вторую координату 1-й вершины"))
+
+b1=int(input("Введите первую координату 2-й вершины"))
+b2=int(input("Введите вторую координату 2-й вершины"))
+
+c1=int(input("Введите первую координату 3-й вершины"))
+c2=int(input("Введите вторую координату 3-й вершины"))
+
+RTA=math.sqrt(a1**2+a2**2)
+RTB=math.sqrt(b1**2+b2**2)
+RTC=math.sqrt(c1**2+c2**2)
+
+if rad>RTA and rad>RTB and rad>RTC:
+    print("Треугольник расположен в окружности")
+elif rad==RTA and rad==RTB and rad==RTC:
+    print("Треугольник расположен на окружности")
+elif rad<RTA and rad<RTB and rad<RTC:
+    print("Треугольник расположен за окружностью")
+elif (RTA>rad and RTB<rad and RTC<rad) or (RTA<rad and RTB>rad and RTC<rad) or (RTA<rad and RTB<rad and RTC>rad):
+    print("Вершина треугольника выходит за окружность")
+elif (RTA<rad and RTB>rad and RTC>rad) or (RTA>rad and RTB<rad and RTC>rad) or (RTA>rad and RTB>rad and RTC<rad):
+    print("Вершина треугольника входит в окружность")
+elif (RTA==rad and RTB>rad and RTC>rad) or (RTA>rad and RTB==rad and RTC>rad) or (RTA>rad and RTB>rad and RTC==rad):
+    print("Вершина треугольника касается окружностью")
+print(a1,a2)
+print(b1,b2)
+print(c1,c2)
+print("Точки диаметра: ",CentrKruga1+rad,CentrKruga2+rad,CentrKruga1-rad,CentrKruga2-rad)
